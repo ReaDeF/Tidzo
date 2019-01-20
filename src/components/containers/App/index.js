@@ -1,7 +1,7 @@
 // #region dependencies
 import React from 'react';
 import { connect } from 'react-redux';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { Switch, Route, withRouter } from 'react-router-dom';
 // #endregion
 // #region components
@@ -10,7 +10,11 @@ import Paragraph from '../../presentational/Paragraph';
 // #endregion
 // #region constant
 import appRouter from '../../../common/constant/routerView/app';
+import LoginService from '../../../services/security/login';
+
 // #endregion
+
+const loginSvc = new LoginService();
 
 /**
  * @file components/containers/App/index.js
@@ -30,7 +34,12 @@ class App extends React.Component {
     this.state = {};
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    // eslint-disable-next-line react/destructuring-assignment
+    console.log('CALLING');
+    // eslint-disable-next-line react/destructuring-assignment
+    loginSvc.login({ user_name: 'eve.holt@reqres.in', password: 'cityslicka' })(this.props.dispatch);
+  }
 
   /**
    * @function
@@ -66,11 +75,11 @@ const mapStateToProps = state => ({
 });
 
 App.propTypes = {
-  // dispatch: PropTypes.func,
+  dispatch: PropTypes.func,
 };
 
 App.defaultProps = {
-  // dispatch: '',
+  dispatch: '',
 };
 
 export default withRouter(connect(mapStateToProps)(App));

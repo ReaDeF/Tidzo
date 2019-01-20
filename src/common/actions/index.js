@@ -8,5 +8,9 @@
  */
 import * as profileAct from './profile';
 import * as fooAct from './foo';
+import * as requestAct from './request';
+import * as securityAct from './security';
 
-export { profileAct, fooAct };
+export {
+  profileAct, fooAct, requestAct, securityAct,
+};
