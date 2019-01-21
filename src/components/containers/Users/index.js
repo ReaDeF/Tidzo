@@ -2,14 +2,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 // import PropTypes from 'prop-types';
-import { Switch, Route, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 // #endregion
 // #region components
-import Layouts from '../Layouts';
-import Users from '../Users';
 // #endregion
 // #region constant
-import appRouter from '../../../common/constant/routerView/mainNav';
 // #endregion
 
 /**
@@ -40,14 +37,8 @@ class App extends React.Component {
    * @return {JSX} Components for App
    */
   render() {
-    const { user: { userMain } } = appRouter;
-
     return (
-      <Layouts>
-        <Switch>
-          <Route path={userMain} component={Users} />
-        </Switch>
-      </Layouts>
+      <h1>User module</h1>
     );
   }
 }
@@ -60,10 +51,7 @@ class App extends React.Component {
  * @param {Object} state    - list of state
  * @return {Object} state from store
  */
-const mapStateToProps = state => ({
-  showProfileInfo: state.profile.showInfo,
-  profileInfo: state.profile.info,
-});
+const mapStateToProps = () => ({});
 
 App.propTypes = {
   // dispatch: PropTypes.func,
