@@ -6,8 +6,12 @@ import { withRouter } from 'react-router-dom';
 // #endregion
 // #region components
 import Layout from 'antd/lib/layout';
-import Menu from 'antd/lib/menu';
 import Icon from 'antd/lib/icon';
+import Menu from 'antd/lib/menu';
+import NavMenu from '../../presentational/NavMenu';
+// #endregion
+// #region constant
+import mainNavItems from '../../../common/constant/menuItems/mainNavItems';
 // #endregion
 
 const {
@@ -67,20 +71,11 @@ class Layouts extends React.Component {
           collapsible
           collapsed={collapsed}
         >
-          <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-            <Menu.Item key="1">
-              <Icon type="user" />
-              <span>nav 1</span>
-            </Menu.Item>
-            <Menu.Item key="2">
-              <Icon type="video-camera" />
-              <span>nav 2</span>
-            </Menu.Item>
-            <Menu.Item key="3">
-              <Icon type="upload" />
-              <span>nav 3</span>
-            </Menu.Item>
-          </Menu>
+          <NavMenu items={mainNavItems} />
+          <span>
+            <Icon type="question-circle" />
+            <span>Necesito soporte</span>
+          </span>
         </Sider>
         <Layout>
           <Header
@@ -97,11 +92,20 @@ class Layouts extends React.Component {
               margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280,
             }}
           >
-            <h1>Content</h1>
             {children}
           </Content>
-          <Footer>
-            <h1>Footer</h1>
+          <Footer
+            style={{
+              padding: 0,
+            }}
+          >
+            <Menu
+              mode="horizontal"
+            >
+              <Menu.Item key="1">Condiciones de uso</Menu.Item>
+              <Menu.Item key="2">Uso de cookies</Menu.Item>
+              <Menu.Item key="3">Política de privacidad</Menu.Item>
+            </Menu>
           </Footer>
         </Layout>
       </Layout>
