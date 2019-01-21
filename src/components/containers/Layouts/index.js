@@ -7,6 +7,7 @@ import { withRouter } from 'react-router-dom';
 // #region components
 import Layout from 'antd/lib/layout';
 import Icon from 'antd/lib/icon';
+import Menu from 'antd/lib/menu';
 import NavMenu from '../../presentational/NavMenu';
 // #endregion
 // #region constant
@@ -93,8 +94,18 @@ class Layouts extends React.Component {
           >
             {children}
           </Content>
-          <Footer>
-            <h1>Footer</h1>
+          <Footer
+            style={{
+              padding: 0,
+            }}
+          >
+            <Menu
+              mode="horizontal"
+            >
+              <Menu.Item key="1">Condiciones de uso</Menu.Item>
+              <Menu.Item key="2">Uso de cookies</Menu.Item>
+              <Menu.Item key="3">Política de privacidad</Menu.Item>
+            </Menu>
           </Footer>
         </Layout>
       </Layout>
