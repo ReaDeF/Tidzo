@@ -2,7 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-// const envIsProd = process.env.NODE_ENV === 'production' && true;
+const envIsProd = process.env.NODE_ENV === 'production' && true;
 
 module.exports = {
   entry: {
@@ -34,18 +34,18 @@ module.exports = {
     }),
     new webpack.HotModuleReplacementPlugin(),
   ],
-  // devServer: {
-  //   contentBase: path.join(__dirname, 'public'),
-  //   compress: true,
-  //   hot: !envIsProd,
-  //   host: 'localhost',
-  //   open: !envIsProd,
-  //   overlay: {
-  //     warnings: false,
-  //     errors: true,
-  //   },
-  //   port: 60609,
-  //   stats: 'errors-only',
-  //   historyApiFallback: true,
-  // },
+  devServer: {
+    contentBase: path.join(__dirname, 'public'),
+    compress: true,
+    hot: !envIsProd,
+    host: 'localhost',
+    open: !envIsProd,
+    overlay: {
+      warnings: false,
+      errors: true,
+    },
+    port: 7771,
+    stats: 'errors-only',
+    historyApiFallback: true,
+  },
 };
