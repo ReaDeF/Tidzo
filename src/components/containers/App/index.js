@@ -36,10 +36,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    // eslint-disable-next-line react/destructuring-assignment
-    console.log('CALLING');
-    // eslint-disable-next-line react/destructuring-assignment
-    loginSvc.login({ user_name: 'eve.holt@reqres.in', password: 'cityslicka' })(this.props.dispatch);
+    
   }
 
   /**

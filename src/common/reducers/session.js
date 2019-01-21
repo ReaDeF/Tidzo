@@ -25,7 +25,7 @@ const initialState = {
 */
 const session = (state = initialState, action) => {
   switch (action.type) {
-    case securityAct.PERFORM_LOGIN:
+    case securityAct.LOAD_USER_SESSION:
       return Object.assign({}, state, action);
     default:
       return state;
