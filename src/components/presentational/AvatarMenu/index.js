@@ -30,9 +30,9 @@ const Menus = () => (
 const AvatarMenu = () => (
   <Dropdown overlay={Menus}>
     <a className="ant-dropdown-link" href="##">
-      <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
       <span>CAMILO MENDIETA</span>
       <span>Administrador</span>
+      <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
     </a>
   </Dropdown>
 );

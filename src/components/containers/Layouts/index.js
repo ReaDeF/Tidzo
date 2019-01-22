@@ -5,10 +5,15 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 // #endregion
 // #region components
+import Row from 'antd/lib/row';
+import Col from 'antd/lib/col';
 import Layout from 'antd/lib/layout';
 import Icon from 'antd/lib/icon';
 import Menu from 'antd/lib/menu';
 import NavMenu from '../../presentational/NavMenu';
+import AvatarMenu from '../../presentational/AvatarMenu';
+import Search from '../../presentational/Search';
+import NotifyMenu from '../../presentational/NotifyMenu';
 // #endregion
 // #region constant
 import mainNavItems from '../../../common/constant/menuItems/mainNavItems';
@@ -81,11 +86,20 @@ class Layouts extends React.Component {
           <Header
             style={{ background: '#fff', padding: 0 }}
           >
-            <Icon
-              className="trigger"
-              type={collapsed ? 'menu-unfold' : 'menu-fold'}
-              onClick={toggleMenu}
-            />
+            <Row>
+              <Col span={16}>
+                <Icon
+                  className="trigger"
+                  type={collapsed ? 'menu-unfold' : 'menu-fold'}
+                  onClick={toggleMenu}
+                />
+                <Search />
+              </Col>
+              <Col span={8}>
+                <NotifyMenu />
+                <AvatarMenu />
+              </Col>
+            </Row>
           </Header>
           <Content
             style={{
