@@ -96,7 +96,7 @@ const NavMenu = () => (
     size="large"
     style={{ width: '70%' }}
     dataSource={options}
-    placeholder="input here"
+    placeholder="Ingresa tu búsqueda"
     optionLabelProp="value"
   >
     <Input suffix={<Icon type="search" className="certain-category-icon" />} />
