@@ -1,5 +1,5 @@
 const Keys = {
-  cookieTokenKey: 'token',
+  cookieTokenKey: 'api_token',
 };
 
 export default Keys;
