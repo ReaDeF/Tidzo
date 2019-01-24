@@ -39,7 +39,6 @@ const { SubMenu } = Menu;
 // - load all the menu items by dynamically
 const NavMenu = () => (
   <Menu
-    className="tidzo-menu__wrapper"
     theme="dark"
     mode="inline"
     defaultSelectedKeys={['1']}

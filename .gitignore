@@ -1,7 +1,6 @@
 #dev
 node_modules
 package-lock.json
-.idea/*
 
 #prod
 /docs

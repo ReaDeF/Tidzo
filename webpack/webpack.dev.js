@@ -1,5 +1,4 @@
 const path = require('path');
-const webpack = require('webpack');
 
 module.exports = {
   mode: 'development',
@@ -17,9 +16,4 @@ module.exports = {
     ],
   },
   devtool: 'inline-source-map',
-  plugins: [
-    new webpack.DefinePlugin({
-      'process.env.apiDomain': JSON.stringify('http://localhost:5000/api/'),
-    }),
-  ],
 };

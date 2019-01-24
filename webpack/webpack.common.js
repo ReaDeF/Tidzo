@@ -6,7 +6,7 @@ const envIsProd = process.env.NODE_ENV === 'production' && true;
 
 module.exports = {
   entry: {
-    app: ['babel-polyfill', path.resolve(__dirname, './../src/index.js')],
+    app: path.resolve(__dirname, './../src/index.js'),
   },
   module: {
     rules: [

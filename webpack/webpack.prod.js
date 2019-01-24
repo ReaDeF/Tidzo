@@ -2,7 +2,6 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const webpack = require('webpack');
 
 module.exports = {
   mode: 'production',
@@ -26,9 +25,6 @@ module.exports = {
       chunkFilename: '[id].[hash].css',
     }),
     new OptimizeCssAssetsPlugin({}),
-    new webpack.DefinePlugin({
-      'process.env.apiDomain': JSON.stringify('http://190.85.72.78:8080/'),
-    }),
   ],
   devtool: 'source-map',
 };
