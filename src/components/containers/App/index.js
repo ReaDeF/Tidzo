@@ -3,6 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 // import PropTypes from 'prop-types';
 import { Switch, Route, withRouter } from 'react-router-dom';
+import { hot } from 'react-hot-loader';
 // #endregion
 // #region components
 import Layouts from '../Layouts';
@@ -75,4 +76,4 @@ App.defaultProps = {
   // dispatch: '',
 };
 
-export default withRouter(connect(mapStateToProps)(App));
+export default hot(module)(withRouter(connect(mapStateToProps)(App)));

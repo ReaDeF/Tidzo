@@ -5,7 +5,7 @@
  * @return {Object} List of items object with label, to, exact and icon properties
  */
 const base = '/';
-const user = '/user';
+const user = '/users';
 export default {
   default: `${base}`,
   user: {
