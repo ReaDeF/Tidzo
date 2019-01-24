@@ -9,10 +9,12 @@
 import { combineReducers } from 'redux';
 import profile from './profile';
 import session from './session';
+import user from './user';
 
 const app = combineReducers({
   profile,
   session,
+  user,
 });
 
 export default app;
