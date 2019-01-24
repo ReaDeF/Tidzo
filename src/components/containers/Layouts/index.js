@@ -72,12 +72,13 @@ class Layouts extends React.Component {
         className="full-height"
       >
         <Sider
+          className="tidzo-menu"
           trigger={null}
           collapsible
           collapsed={collapsed}
         >
           <NavMenu items={mainNavItems} />
-          <span>
+          <span className="need-support">
             <Icon type="question-circle" />
             <span>Necesito soporte</span>
           </span>

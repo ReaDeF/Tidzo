@@ -1,0 +1,95 @@
+.tidzo-menu {
+  background-color: $base-color;
+
+  &:not(.ant-layout-sider-collapsed) {
+
+    .tidzo-menu__wrapper {
+      padding-left: 21px !important;
+    }
+  }
+
+  //WRAPPER
+  &__wrapper {
+    padding-top: 32px;
+    background-color: $base-color;
+    transition: padding-left .15s ease-in-out;
+  }
+
+  //ITEMS
+  .ant-menu-item,
+  .ant-menu-submenu-title {
+    background-color: $base-color;
+    color: rgba($base-white, .5);
+    font-size: 13px;
+    height: 60px !important;
+    line-height: 60px !important;
+    margin: 0 !important;
+
+    .anticon {
+      font-size: 20px;
+      @include transition_slow(color);
+    }
+
+    span {
+      margin-left: 10px;
+    }
+
+    a {
+      color: rgba($base-white, .5);
+    }
+
+    &:hover,
+    &.ant-menu-item-selected {
+      background-color: $base-color-fifth !important;
+      font-weight: 700;
+
+      a {
+        color: rgba($base-white, 1) !important;
+        font-weight: 700;
+      }
+
+      .anticon {
+        color: $base-color-two;
+      }
+    }
+  }
+
+  //DIVIDER
+  .ant-menu-item-divider {
+    background-color: rgba($base-white, .3);
+  }
+
+  .need-support {
+    bottom: 20px;
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    .anticon,
+    span {
+      color: $base-color-three;
+      @include transition_slow(color);
+    }
+
+    .anticon {
+      font-size: 24px;
+      margin-right: 10px;
+    }
+
+    span {
+      font-weight: 300;
+    }
+
+    &:hover {
+
+      .anticon,
+      span {
+        color: $base-white;
+      }
+    }
+
+  }
+
+}
