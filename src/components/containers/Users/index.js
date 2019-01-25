@@ -10,17 +10,17 @@ import { withRouter } from 'react-router-dom';
 // #endregion
 
 /**
- * @file components/containers/App/index.js
- * @class components/containers/App
+ * @file components/containers/Users/index.js
+ * @class components/containers/Users
  * @extends React.Component
- * @classdesc This is the main app component. Were all the views and controls are loaded.
+ * @classdesc This is the main Users component. Were all the views and controls are loaded.
  * This include the navigation layout and the route config
  * @since v1.0
  * @author @clenondavis <dev@carloslenon.com>
  * @example
- * <App />
+ * <Users />
  */
-class App extends React.Component {
+class Users extends React.Component {
   constructor() {
     super();
 
@@ -46,19 +46,19 @@ class App extends React.Component {
 /**
  * @function
  * @name mapStateToProps
- * @memberof components/containers/App
+ * @memberof components/containers/Users
  * @description Set props to state
  * @param {Object} state    - list of state
  * @return {Object} state from store
  */
 const mapStateToProps = () => ({});
 
-App.propTypes = {
+Users.propTypes = {
   // dispatch: PropTypes.func,
 };
 
-App.defaultProps = {
+Users.defaultProps = {
   // dispatch: '',
 };
 
-export default withRouter(connect(mapStateToProps)(App));
+export default withRouter(connect(mapStateToProps)(Users));

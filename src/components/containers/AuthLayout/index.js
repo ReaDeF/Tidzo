@@ -1,51 +1,42 @@
 // #region dependencies
 import React from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+// import PropTypes from 'prop-types';
+import { Switch, Route, withRouter } from 'react-router-dom';
 import { hot } from 'react-hot-loader';
 // #endregion
 // #region antd
 import Layout from 'antd/lib/layout';
 // #endregion
 // #region components
-import MainSideBar from '../../presentational/MainSideBar';
-import MainHeader from '../../presentational/MainHeader';
+import AuthLayoutHeader from '../../presentational/AuthLayoutHeader';
 import PartialView from '../../presentational/PartialView';
 import Footers from '../../presentational/Footers';
+import Login from '../Login';
 // #endregion
 // #region constant
-import mainNavItems from '../../../common/constant/menuItems/mainNavItems';
+import routerView from '../../../common/constant/routerView';
 // #endregion
 
 /**
- * @file components/containers/Layouts/index.js
- * @class components/containers/Layouts
+ * @file components/containers/AuthLayout/index.js
+ * @class components/containers/AuthLayout
  * @extends React.Component
  * @classdesc This is the main layout component. Were all the views and controls are loaded.
  * This include the navigation layout and the route config
  * @since v1.0
  * @author @clenondavis <dev@carloslenon.com>
  * @example
- * <Layouts>
- * </Layouts>
+ * <AuthLayout>
+ * </AuthLayout>
  */
-class Layouts extends React.Component {
+class AuthLayout extends React.Component {
   constructor() {
     super();
-
-    this.state = {
-      collapsed: false,
-    };
+    this.state = {};
   }
 
   componentDidMount() {}
-
-  toggleMenu = () => {
-    this.setState(prevState => ({
-      collapsed: !prevState.collapsed,
-    }));
-  }
 
   /**
    * @function
@@ -55,29 +46,28 @@ class Layouts extends React.Component {
    * @return {JSX} Components for App
    */
   render() {
-    const { toggleMenu } = this;
-    const { collapsed } = this.state;
-    const { children } = this.props;
+    const {
+      auth: {
+        login,
+      },
+    } = routerView;
 
     return (
       <Layout
         className="full-height"
       >
-        <MainSideBar
-          navItems={mainNavItems}
-          collapsed={collapsed}
-        />
         <Layout>
-          <MainHeader
-            collapsed={collapsed}
-            toggleMenu={toggleMenu}
-          />
+          <AuthLayoutHeader />
           <PartialView>
-            {children}
+            <Switch>
+              <Route
+                exact
+                path={login}
+                component={Login}
+              />
+            </Switch>
           </PartialView>
-          <Footers
-            showCopyRight
-          />
+          <Footers />
         </Layout>
       </Layout>
     );
@@ -94,14 +84,12 @@ class Layouts extends React.Component {
  */
 const mapStateToProps = () => ({});
 
-Layouts.propTypes = {
+AuthLayout.propTypes = {
   // dispatch: PropTypes.func,
-  children: PropTypes.node,
 };
 
-Layouts.defaultProps = {
+AuthLayout.defaultProps = {
   // dispatch: '',
-  children: [],
 };
 
-export default hot(module)(withRouter(connect(mapStateToProps)(Layouts)));
+export default hot(module)(withRouter(connect(mapStateToProps)(AuthLayout)));

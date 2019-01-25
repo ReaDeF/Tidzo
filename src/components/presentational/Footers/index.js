@@ -1,6 +1,6 @@
 // #region load dependencies
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 // import { Link } from 'react-router-dom';
 // #endregion
 // #region components
@@ -26,7 +26,7 @@ const {
  * @example
  * <Footers />
  */
-const Footers = () => (
+const Footers = ({ showCopyRight }) => (
   <Footer
     className="tidzo-footer"
   >
@@ -39,11 +39,17 @@ const Footers = () => (
         </Menu>
       </Col>
       <Col span={8}>
-        <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
-        <Icon
-          type="copyright"
-        />
-        <span>Tidzo App</span>
+        {
+          showCopyRight && (
+            <>
+              <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+              <Icon
+                type="copyright"
+              />
+              <span>Tidzo App</span>
+            </>
+          )
+        }
       </Col>
     </Row>
   </Footer>
@@ -54,10 +60,15 @@ const Footers = () => (
  * @memberof components/presentational/Footers
  * @type {propTypes}
  * @param {Object} props        - React PropTypes
+ * @param {Bool} showCopyRight  - Show the copy right text
  * @return {Array} React PropTypes
  */
-Footers.propTypes = {};
+Footers.propTypes = {
+  showCopyRight: PropTypes.bool,
+};
 
-Footers.defaultProps = {};
+Footers.defaultProps = {
+  showCopyRight: false,
+};
 
 export default Footers;
