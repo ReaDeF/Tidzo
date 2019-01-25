@@ -8,14 +8,14 @@
 
 import BaseService from '../base/index';
 import { userAct } from '../../common/actions/index';
-import values from '../../common/constant/values';
+import settings from '../../common/constant/setting';
 import { userUrls } from '../../common/constant/apiUrl';
 
 // #endregion
 
 class UserService extends BaseService {
   defaultFilter = {
-    pageSize: values.defaultPageSize,
+    pageSize: settings.defaultPageSize,
     page: 1,
   };
 
@@ -24,10 +24,10 @@ class UserService extends BaseService {
   * @name loadUsers
   * @description Perform login with the provided credentials.
   * @param {OBJECT} filter User credentials for user authentication.
-  * @param {OBJECT} pagination Contains pagination information to be applied over the filtered list.
+  * @param {OBJECT} filter.pagination Contains pagination information to be applied.
   * @param {Number} filter.pagination.page_size The number of records contained in every page.
   * @param {Number} filter.pagination.page The requeste page.
-  * @param {OBJECT} discriminant Contains the filters to be applied over the records.
+  * @param {OBJECT} filter.discriminant Contains the filters to be applied over the records.
   * @param {String} filter.discriminant.job_title The job title to be applied as filter.
   * @param {String} filter.discriminant.point_of_sale The point of sale to be applied as filter.
   * @param {String} filter.discriminant.date_of_admission The admission date to be applied.
