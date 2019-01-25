@@ -6,9 +6,14 @@
  */
 const base = '/';
 const user = '/users';
+const auth = '/auth';
 export default {
-  default: `${base}`,
+  base,
   user: {
-    userMain: `${user}`,
+    list: `${user}`,
+  },
+  auth: {
+    base,
+    login: `${auth}/login`,
   },
 };

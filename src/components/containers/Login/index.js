@@ -3,58 +3,42 @@ import React from 'react';
 import { connect } from 'react-redux';
 // import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
-import { hot } from 'react-hot-loader';
 // #endregion
 // #region components
-// import Layouts from '../Layouts';
-import AuthLayout from '../AuthLayout';
 // #endregion
 // #region constant
 // #endregion
 
 /**
- * @file components/containers/App/index.js
- * @class components/containers/App
+ * @file components/containers/Login/index.js
+ * @class components/containers/Login
  * @extends React.Component
- * @classdesc This is the main app component. Were all the views and controls are loaded.
+ * @classdesc This is the main Login component. Were all the views and controls are loaded.
  * This include the navigation layout and the route config
  * @since v1.0
  * @author @clenondavis <dev@carloslenon.com>
  * @example
- * <App />
+ * <Login />
  */
-class App extends React.Component {
+class Login extends React.Component {
   constructor() {
     super();
 
     this.state = {};
   }
 
-  componentDidMount() {
-
-  }
+  componentDidMount() {}
 
   /**
    * @function
    * @name render
-   * @memberof components/containers/App
+   * @memberof components/containers/Login
    * @description Render all components
    * @return {JSX} Components for App
    */
   render() {
-    // const { user: { userMain } } = appRouter;
-
     return (
-      // <Layouts>
-      //   <Switch>
-      //     <Route
-      //       exact
-      //       path={userMain}
-      //       component={Users}
-      //     />
-      //   </Switch>
-      // </Layouts>
-      <AuthLayout />
+      <h1>Login View</h1>
     );
   }
 }
@@ -62,19 +46,19 @@ class App extends React.Component {
 /**
  * @function
  * @name mapStateToProps
- * @memberof components/containers/App
+ * @memberof components/containers/Login
  * @description Set props to state
  * @param {Object} state    - list of state
  * @return {Object} state from store
  */
 const mapStateToProps = () => ({});
 
-App.propTypes = {
+Login.propTypes = {
   // dispatch: PropTypes.func,
 };
 
-App.defaultProps = {
+Login.defaultProps = {
   // dispatch: '',
 };
 
-export default hot(module)(withRouter(connect(mapStateToProps)(App)));
+export default withRouter(connect(mapStateToProps)(Login));
