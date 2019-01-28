@@ -1,10 +1,61 @@
+/***************************************************************
+ * SETTINGS
+ ***************************************************************/
+%tidzo-menu__hover-state {
+  background-color: $base-color;
+  color: rgba($base-white, .5);
+  font-size: 13px;
+  height: 60px !important;
+  line-height: 60px !important;
+  margin: 0 !important;
+
+  .anticon {
+    font-size: 20px;
+    @include transition_slow(color);
+  }
+
+  span {
+    margin-left: 10px;
+  }
+
+  a {
+    color: rgba($base-white, .5);
+  }
+
+  &:hover,
+  &.ant-menu-item-selected {
+    background-color: $base-color-fifth !important;
+    font-weight: 700;
+
+    a {
+      color: rgba($base-white, 1) !important;
+      font-weight: 700;
+    }
+
+    .anticon {
+      color: $base-color-two;
+    }
+  }
+}
+
+/***************************************************************
+ * LAYOUT
+ ***************************************************************/
 .tidzo-menu {
   background-color: $base-color;
 
   &:not(.ant-layout-sider-collapsed) {
-
     .tidzo-menu__wrapper {
       padding-left: 21px !important;
+    }
+  }
+
+  //COLLAPSE
+  &.ant-layout-sider-collapsed{
+    .need-support {
+      span{
+        opacity: 0;
+      }
     }
   }
 
@@ -18,39 +69,10 @@
   //ITEMS
   .ant-menu-item,
   .ant-menu-submenu-title {
-    background-color: $base-color;
-    color: rgba($base-white, .5);
-    font-size: 13px;
-    height: 60px !important;
-    line-height: 60px !important;
-    margin: 0 !important;
-
-    .anticon {
-      font-size: 20px;
-      @include transition_slow(color);
-    }
+    @extend %tidzo-menu__hover-state;
 
     span {
-      margin-left: 10px;
-    }
-
-    a {
-      color: rgba($base-white, .5);
-    }
-
-    &:hover,
-    &.ant-menu-item-selected {
-      background-color: $base-color-fifth !important;
-      font-weight: 700;
-
-      a {
-        color: rgba($base-white, 1) !important;
-        font-weight: 700;
-      }
-
-      .anticon {
-        color: $base-color-two;
-      }
+      margin-left: 0;
     }
   }
 
@@ -59,11 +81,21 @@
     background-color: rgba($base-white, .3);
   }
 
+  //SUBMENU
+  .ant-menu-submenu {
+    .ant-menu-item {
+      height: 41px !important;
+      line-height: 41px !important;
+    }
+  }
+
+
   .need-support {
+    align-items: center;
     bottom: 20px;
     display: flex;
+    min-width: 200px;
     position: absolute;
-    align-items: center;
     justify-content: center;
     width: 100%;
 
@@ -83,13 +115,16 @@
     }
 
     &:hover {
-
       .anticon,
       span {
         color: $base-white;
       }
     }
-
   }
+}
 
+.ant-menu-submenu-popup {
+  .ant-menu-item {
+    @extend %tidzo-menu__hover-state;
+  }
 }
