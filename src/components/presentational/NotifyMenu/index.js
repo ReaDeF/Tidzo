@@ -30,7 +30,7 @@ const Menus = () => (
  */
 const NotifyIcon = () => (
   <Dropdown overlay={Menus}>
-    <a className="ant-dropdown-link" href="##">
+    <a className="user-notifications ant-dropdown-link" href="##">
       <span>
         <Badge dot><Icon type="bell" /></Badge>
       </span>
