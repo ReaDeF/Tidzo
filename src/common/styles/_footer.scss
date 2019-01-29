@@ -1,4 +1,30 @@
 .tidzo-footer {
   padding: 0;
   background: $base-white;
+  border-top: 1px solid #E2E2E2;
+
+  //MENU
+  .ant-menu {
+
+    .ant-menu-item{
+
+      &-active{
+        color: $base-color-three;
+        border-bottom-color: $base-color-three;
+      }
+    }
+  }
+
+  //LOGO
+  &__logo {
+    display: flex;
+    height: 48px;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 40px;
+
+    .anticon-copyright {
+      padding: 0 5px 0 10px;
+    }
+  }
 }
