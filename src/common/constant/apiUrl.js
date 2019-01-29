@@ -1,12 +1,12 @@
-import Keys from './keys';
+const baseHost = process.env.apiDomain;
 
 export const securityUrls = {
-  login: `${process.env.apiDomain}login`,
+  login: `${baseHost}seguridad/autenticacion`,
 };
 
 export const userUrls = {
-  list: `${process.env.apiDomain}list`,
-  recoverPassword: `${process.env.apiDomain}recoverpassword/${Keys.userNameKey}`,
+  list: `${baseHost}list`,
+  recoverPassword: `${baseHost}recoverpassword/${Keys.userNameKey}`,
 };
 
 export const foo = {

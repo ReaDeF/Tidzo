@@ -1,12 +1,26 @@
 // #region dependencies
 import React from 'react';
 import { connect } from 'react-redux';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 // #endregion
+// #region antd
+import {
+  Row,
+  Col,
+  Form,
+  Icon,
+  Input,
+  Button,
+} from 'antd';
+// #endregion
 // #region components
+import Title from '../../presentational/Title';
 // #endregion
 // #region constant
+// #endregion
+// #region service
+import LoginService from '../../../services/security/login';
 // #endregion
 
 /**
@@ -24,10 +38,55 @@ class Login extends React.Component {
   constructor() {
     super();
 
-    this.state = {};
+    this.state = {
+      credentials: {
+        user: '',
+        password: '',
+      },
+    };
   }
 
   componentDidMount() {}
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+  }
+
+  loggedIn = () => {
+    const LoginServ = new LoginService();
+    const {
+      credentials: {
+        user,
+        password,
+      },
+    } = this.state;
+    const {
+      dispatch,
+    } = this.props;
+
+    const credentialToSend = {
+      usuario: user,
+      password,
+    };
+
+    dispatch(LoginServ.login(credentialToSend));
+  }
+
+  handleInputOnchange = (evt) => {
+    const {
+      target: {
+        value,
+        name,
+      },
+    } = evt;
+
+    this.setState(prevState => ({
+      credentials: {
+        ...prevState.credentials,
+        [name]: value,
+      },
+    }));
+  }
 
   /**
    * @function
@@ -37,8 +96,62 @@ class Login extends React.Component {
    * @return {JSX} Components for App
    */
   render() {
+    const {
+      handleSubmit,
+      handleInputOnchange,
+      loggedIn,
+    } = this;
+    const {
+      credentials: {
+        user,
+        password,
+      },
+    } = this.state;
+
     return (
-      <h1>Login View</h1>
+      <Row>
+        <Col span={24}>
+          <Title text="¡Bienvenido!" />
+        </Col>
+        <Col span={24}>
+          <Form
+            layout="vertical"
+            onSubmit={handleSubmit}
+          >
+            <Form.Item label="CORREO ELECTRONICO">
+              <Input
+                name="user"
+                prefix={<Icon type="user" />}
+                placeholder="nombre@micorreo.com"
+                onChange={handleInputOnchange}
+                value={user}
+              />
+            </Form.Item>
+            <Form.Item label="CONTRASEÑA">
+              <Input
+                name="password"
+                prefix={<Icon type="lock" />}
+                type="password"
+                placeholder="8+ caracteres alfanuméricos"
+                onChange={handleInputOnchange}
+                value={password}
+              />
+            </Form.Item>
+            <Form.Item>
+              <a href="##">Olvidé mi contraseña</a>
+              <a href="##">Quiero obtener una cuenta</a>
+            </Form.Item>
+            <Form.Item>
+              <Button
+                type="primary"
+                onClick={loggedIn}
+              >
+                {'Log in'}
+              </Button>
+            </Form.Item>
+          </Form>
+        </Col>
+      </Row>
     );
   }
 }
@@ -54,11 +167,11 @@ class Login extends React.Component {
 const mapStateToProps = () => ({});
 
 Login.propTypes = {
-  // dispatch: PropTypes.func,
+  dispatch: PropTypes.func,
 };
 
 Login.defaultProps = {
-  // dispatch: '',
+  dispatch: '',
 };
 
 export default withRouter(connect(mapStateToProps)(Login));
