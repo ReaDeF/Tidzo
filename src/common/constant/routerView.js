@@ -5,10 +5,15 @@
  * @return {Object} List of items object with label, to, exact and icon properties
  */
 const base = '/';
-const user = '/user';
+const user = '/users';
+const auth = '/auth';
 export default {
-  default: `${base}`,
+  base,
   user: {
-    userMain: `${user}`,
+    list: `${user}`,
+  },
+  auth: {
+    base,
+    login: `${auth}/login`,
   },
 };

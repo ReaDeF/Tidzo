@@ -9,6 +9,8 @@
 import Cookies from 'universal-cookie';
 import Keys from '../../common/constant/keys';
 
+const decoder = require('jwt-decode');
+
 // #endregion Imports
 
 const cookie = new Cookies();
@@ -26,7 +28,34 @@ export const setToken = (token) => {
 /**
  * @function
  * @name getToken
- * @description Gets the store token.
+ * @description Gets the stored token.
  * @return {String} The stored token or undefined if it does not exists.
  */
 export const getToken = () => cookie.get(Keys.cookieTokenKey);
+
+/**
+ * @function
+ * @name validateToken
+ * @description Indicates if the provided token is valid.
+ * @param {String} token The token to be validated.
+ * @return {Boolean} true if the token is valid otherwise false.
+ */
+export const validateToken = (token) => {
+  try {
+    if (!token) {
+      return false;
+    }
+
+    const decodedToken = decoder(token);
+    const expDate = new Date(0);
+    expDate.setUTCSeconds(decodedToken.exp);
+
+    return expDate.valueOf() > new Date().valueOf();
+  } catch (err) {
+    return false;
+  }
+};
+
+export const deleteStoredToken = () => {
+  cookie.remove(Keys.cookieTokenKey);
+};

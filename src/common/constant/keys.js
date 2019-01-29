@@ -1,5 +1,4 @@
-const Keys = {
-  cookieTokenKey: 'token',
+export default {
+  cookieTokenKey: 'api_token',
+  userNameKey: 'user-name',
 };
-
-export default Keys;
