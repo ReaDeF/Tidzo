@@ -49,19 +49,22 @@ class AuthLayout extends React.Component {
     const {
       auth: {
         login,
+        base,
       },
     } = routerView;
 
     return (
-      <Layout
-        className="full-height"
-      >
+      <Layout className="full-height">
         <Layout>
           <AuthLayoutHeader />
           <PartialView>
             <Switch>
               <Route
                 exact
+                path={base}
+                component={() => (<h2>Testing</h2>)}
+              />
+              <Route
                 path={login}
                 component={Login}
               />

@@ -20,7 +20,7 @@ module.exports = {
   devtool: 'inline-source-map',
   plugins: [
     new webpack.DefinePlugin({
-      'process.env.apiDomain': JSON.stringify('http://localhost:5000/api/'),
+      'process.env.apiDomain': JSON.stringify('http://190.85.72.78:8080/'),
     }),
   ],
 };
