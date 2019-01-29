@@ -1,13 +1,14 @@
 // #region dependencies
 import React from 'react';
 import { connect } from 'react-redux';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { hot } from 'react-hot-loader';
 // #endregion
 // #region components
 // import Layouts from '../Layouts';
 import AuthLayout from '../AuthLayout';
+import UserService from '../../../services/user/user';
 // #endregion
 // #region constant
 // #endregion
@@ -31,7 +32,8 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-
+    const { dispatch } = this.props;
+    new UserService().recoverPassword('maru@jer.com')(dispatch);
   }
 
   /**
@@ -70,11 +72,11 @@ class App extends React.Component {
 const mapStateToProps = () => ({});
 
 App.propTypes = {
-  // dispatch: PropTypes.func,
+  dispatch: PropTypes.func,
 };
 
 App.defaultProps = {
-  // dispatch: '',
+  dispatch: '',
 };
 
 export default hot(module)(withRouter(connect(mapStateToProps)(App)));
