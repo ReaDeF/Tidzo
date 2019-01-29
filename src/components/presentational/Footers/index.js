@@ -38,7 +38,7 @@ const Footers = ({ showCopyRight }) => (
           <Menu.Item key="3">Política de privacidad</Menu.Item>
         </Menu>
       </Col>
-      <Col span={8}>
+      <Col className="tidzo-footer__logo" span={8}>
         {
           showCopyRight && (
             <>

@@ -1,3 +1,7 @@
+.ant-select-auto-complete.ant-select .ant-input:focus, .ant-select-auto-complete.ant-select .ant-input:hover{
+  border-color: $base-color-three;
+}
+
 .tidzo {
   height: 100%;
 }
@@ -10,6 +14,7 @@
   transition: color .3s;
 }
 
+<<<<<<< HEAD
 /****************************************************
  * BUTTONS
  ****************************************************/
@@ -124,5 +129,21 @@
     margin: 0;
     color: #727272;
     font-size: 12px;
+=======
+/*********************************************************************
+ * DROPDOWN GLOBAL STYLING
+ **********************************************************************/
+.ant-dropdown {
+  padding: 6px 0;
+
+  .ant-dropdown-menu-item {
+    font-weight: 700;
+    padding: 6px 12px;
+    text-transform: capitalize;
+
+    &-active {
+      background-color: rgba($base-color-three, .2);
+    }
+>>>>>>> b33342e0ca3a32bf673565343d2895bea77d3e65
   }
 }
