@@ -89,7 +89,7 @@ const options = dataSource.map(group => (
  */
 const NavMenu = () => (
   <AutoComplete
-    className="certain-category-search"
+    className="tidzo-main-header__search certain-category-search"
     dropdownClassName="certain-category-search-dropdown"
     dropdownMatchSelectWidth={false}
     dropdownStyle={{ width: 300 }}

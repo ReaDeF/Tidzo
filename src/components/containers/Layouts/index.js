@@ -1,8 +1,8 @@
 // #region dependencies
 import React from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+// import PropTypes from 'prop-types';
+import { Route, Switch, withRouter } from 'react-router-dom';
 import { hot } from 'react-hot-loader';
 // #endregion
 // #region antd
@@ -13,9 +13,11 @@ import MainSideBar from '../../presentational/MainSideBar';
 import MainHeader from '../../presentational/MainHeader';
 import PartialView from '../../presentational/PartialView';
 import Footers from '../../presentational/Footers';
+import Users from '../Users';
 // #endregion
 // #region constant
 import mainNavItems from '../../../common/constant/menuItems/mainNavItems';
+import appRouter from '../../../common/constant/routerView';
 // #endregion
 
 /**
@@ -57,7 +59,7 @@ class Layouts extends React.Component {
   render() {
     const { toggleMenu } = this;
     const { collapsed } = this.state;
-    const { children } = this.props;
+    const { user: { userMain } } = appRouter;
 
     return (
       <Layout
@@ -73,7 +75,13 @@ class Layouts extends React.Component {
             toggleMenu={toggleMenu}
           />
           <PartialView>
-            {children}
+            <Switch>
+              <Route
+                exact
+                path={userMain}
+                component={Users}
+              />
+            </Switch>
           </PartialView>
           <Footers
             showCopyRight
@@ -96,12 +104,10 @@ const mapStateToProps = () => ({});
 
 Layouts.propTypes = {
   // dispatch: PropTypes.func,
-  children: PropTypes.node,
 };
 
 Layouts.defaultProps = {
   // dispatch: '',
-  children: [],
 };
 
 export default hot(module)(withRouter(connect(mapStateToProps)(Layouts)));

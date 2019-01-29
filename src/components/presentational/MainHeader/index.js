@@ -37,13 +37,13 @@ const Footers = ({ collapsed, toggleMenu }) => (
     <Row>
       <Col span={16}>
         <Icon
-          className="trigger"
+          className="trigger tidzo-main-header__trigger"
           type={collapsed ? 'menu-unfold' : 'menu-fold'}
           onClick={toggleMenu}
         />
         <Search />
       </Col>
-      <Col span={8}>
+      <Col className="tidzo-main-header__user" span={8}>
         <NotifyMenu />
         <AvatarMenu />
       </Col>
