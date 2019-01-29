@@ -4,7 +4,18 @@ import { connect } from 'react-redux';
 // import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 // #endregion
+// #region antd
+import {
+  Row,
+  Col,
+  Form,
+  Icon,
+  Input,
+  Button,
+} from 'antd';
+// #endregion
 // #region components
+import Title from '../../presentational/Title';
 // #endregion
 // #region constant
 // #endregion
@@ -29,6 +40,10 @@ class Login extends React.Component {
 
   componentDidMount() {}
 
+  handleSubmit = (e) => {
+    e.preventDefault();
+  }
+
   /**
    * @function
    * @name render
@@ -37,8 +52,36 @@ class Login extends React.Component {
    * @return {JSX} Components for App
    */
   render() {
+    const { handleSubmit } = this;
+
     return (
-      <h1>Login View</h1>
+      <Row>
+        <Col span={24}>
+          <Title text="¡Bienvenido!" />
+        </Col>
+        <Col span={24}>
+          <Form
+            layout="vertical"
+            onSubmit={handleSubmit}
+          >
+            <Form.Item label="CORREO ELECTRONICO">
+              <Input prefix={<Icon type="user" />} placeholder="nombre@micorreo.com" />
+            </Form.Item>
+            <Form.Item label="CONTRASEÑA">
+              <Input prefix={<Icon type="lock" />} type="password" placeholder="8+ caracteres alfanuméricos" />
+            </Form.Item>
+            <Form.Item>
+              <a href="##">Olvidé mi contraseña</a>
+              <a href="##">Quiero obtener una cuenta</a>
+            </Form.Item>
+            <Form.Item>
+              <Button type="primary">
+                {'Log in'}
+              </Button>
+            </Form.Item>
+          </Form>
+        </Col>
+      </Row>
     );
   }
 }
