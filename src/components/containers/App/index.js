@@ -2,20 +2,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Switch, Route, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
+import { hot } from 'react-hot-loader';
 // #endregion
 // #region components
-import Layouts from '../Layouts';
-import Users from '../Users';
+// import Layouts from '../Layouts';
+import AuthLayout from '../AuthLayout';
+import UserService from '../../../services/user/user';
 // #endregion
 // #region constant
-import appRouter from '../../../common/constant/routerView/mainNav';
 // #endregion
-// #region services
-import LoginService from '../../../services/security/login';
-// #endregion
-
-const loginSvc = new LoginService();
 
 /**
  * @file components/containers/App/index.js
@@ -36,10 +32,8 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    // eslint-disable-next-line react/destructuring-assignment
-    console.log('CALLING');
-    // eslint-disable-next-line react/destructuring-assignment
-    loginSvc.login({ user_name: 'eve.holt@reqres.in', password: 'cityslicka' })(this.props.dispatch);
+    const { dispatch } = this.props;
+    new UserService().recoverPassword('maru@jer.com')(dispatch);
   }
 
   /**
@@ -50,14 +44,19 @@ class App extends React.Component {
    * @return {JSX} Components for App
    */
   render() {
-    const { user: { userMain } } = appRouter;
+    // const { user: { userMain } } = appRouter;
 
     return (
-      <Layouts>
-        <Switch>
-          <Route path={userMain} component={Users} />
-        </Switch>
-      </Layouts>
+      // <Layouts>
+      //   <Switch>
+      //     <Route
+      //       exact
+      //       path={userMain}
+      //       component={Users}
+      //     />
+      //   </Switch>
+      // </Layouts>
+      <AuthLayout />
     );
   }
 }
@@ -70,10 +69,7 @@ class App extends React.Component {
  * @param {Object} state    - list of state
  * @return {Object} state from store
  */
-const mapStateToProps = state => ({
-  showProfileInfo: state.profile.showInfo,
-  profileInfo: state.profile.info,
-});
+const mapStateToProps = () => ({});
 
 App.propTypes = {
   dispatch: PropTypes.func,
@@ -83,4 +79,4 @@ App.defaultProps = {
   dispatch: '',
 };
 
-export default withRouter(connect(mapStateToProps)(App));
+export default hot(module)(withRouter(connect(mapStateToProps)(App)));

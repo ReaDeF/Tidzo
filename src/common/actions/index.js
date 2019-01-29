@@ -10,7 +10,8 @@ import * as profileAct from './profile';
 import * as fooAct from './foo';
 import * as requestAct from './request';
 import * as securityAct from './security';
+import * as userAct from './user';
 
 export {
-  profileAct, fooAct, requestAct, securityAct,
+  profileAct, fooAct, requestAct, securityAct, userAct,
 };

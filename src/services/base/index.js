@@ -9,7 +9,7 @@
 // #region Imports
 
 import request from 'superagent';
-import { getToken } from '../security/session';
+import { getToken, validateToken, deleteStoredToken } from '../security/session';
 import { requestAct } from '../../common/actions/index';
 
 // #endregion Imports
@@ -35,10 +35,14 @@ export default class BaseService {
     const headers = Object.assign(defaultHeaders, userHeaders);
 
     if (token) {
-      headers.Authorization = token;
+      if (validateToken(token)) {
+        headers.Authorization = token;
+      } else {
+        deleteStoredToken();
+      }
     }
 
-    return token;
+    return headers;
   };
 
   /**
