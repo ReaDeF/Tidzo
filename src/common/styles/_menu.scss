@@ -1,3 +1,6 @@
+/***************************************************************
+ * SETTINGS
+ ***************************************************************/
 %tidzo-menu__hover-state {
   background-color: $base-color;
   color: rgba($base-white, .5);
@@ -35,12 +38,13 @@
   }
 }
 
-
+/***************************************************************
+ * LAYOUT
+ ***************************************************************/
 .tidzo-menu {
   background-color: $base-color;
 
   &:not(.ant-layout-sider-collapsed) {
-
     .tidzo-menu__wrapper {
       padding-left: 21px !important;
     }

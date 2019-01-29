@@ -1,21 +1,28 @@
-//base colors
+/***************************************************************
+ * COLORS
+ ***************************************************************/
+
+/*************************
+ * BASE
+ *************************/
 $base-color: #103444 !default;
 $base-color-two: #FB4A6A !default;
 $base-color-three: #FE8A55 !default;
 $base-color-fourth: #164854 !default;
 $base-color-fifth: #032732 !default;
 
-
-//BASE GREYS
+/*************************
+ * GREYS
+ *************************/
 $base-black: #000;
 $base-white: #fff;
 
-//HELPERS
+/*************************
+ * HELPERS
+ *************************/
 $base-success: #84D049;
 
-
-
-//MIXINGS
-@mixin transition_slow($property, $time: .2s, $ease: ease-in-out){
-  transition: $property $time $ease;
-}
+/***************************************************************
+ * FONTS
+ ***************************************************************/
+$primary-font: 'Cabin', sans-serif;
