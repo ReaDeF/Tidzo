@@ -6,8 +6,8 @@ import { withRouter } from 'react-router-dom';
 import { hot } from 'react-hot-loader';
 // #endregion
 // #region components
-// import Layouts from '../Layouts';
-import AuthLayout from '../AuthLayout';
+import Layouts from '../Layouts';
+// import AuthLayout from '../AuthLayout';
 // #endregion
 // #region constant
 // #endregion
@@ -42,19 +42,9 @@ class App extends React.Component {
    * @return {JSX} Components for App
    */
   render() {
-    // const { user: { userMain } } = appRouter;
-
     return (
-      // <Layouts>
-      //   <Switch>
-      //     <Route
-      //       exact
-      //       path={userMain}
-      //       component={Users}
-      //     />
-      //   </Switch>
-      // </Layouts>
-      <AuthLayout />
+      <Layouts />
+      // <AuthLayout />
     );
   }
 }
