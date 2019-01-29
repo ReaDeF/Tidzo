@@ -10,6 +10,7 @@ import BaseService from '../base/index';
 import { userAct } from '../../common/actions/index';
 import settings from '../../common/constant/setting';
 import { userUrls } from '../../common/constant/apiUrl';
+import Keys from '../../common/constant/keys';
 
 // #endregion
 
@@ -42,6 +43,21 @@ class UserService extends BaseService {
        dispatch(userAct.loadUsers(response.data));
      }
    }
+
+   /**
+    * @function
+    * @name recoverPassword
+    * @description Send a recover password request.
+    * @param {String} userName User name associated with the account.
+    */
+   recoverPassword = userName => async (dispatch) => {
+     const url = userUrls.recoverPassword.replace(Keys.userNameKey, escape(userName));
+     const response = this.get(url)(dispatch);
+
+     if (response) {
+       // Display message to notify the user.
+     }
+   };
 }
 
 export default UserService;

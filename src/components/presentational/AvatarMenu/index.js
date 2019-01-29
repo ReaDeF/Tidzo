@@ -29,10 +29,10 @@ const Menus = () => (
  */
 const AvatarMenu = () => (
   <Dropdown overlay={Menus}>
-    <a className="ant-dropdown-link" href="##">
-      <span>CAMILO MENDIETA</span>
-      <span>Administrador</span>
-      <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+    <a className="user-profile ant-dropdown-link" href="##">
+      <span className="user-name">CAMILO MENDIETA</span>
+      <span className="user-role">Administrador</span>
+      <Avatar className="user-avatar" src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
     </a>
   </Dropdown>
 );

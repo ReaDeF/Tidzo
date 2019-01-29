@@ -1,0 +1,82 @@
+.tidzo-main-header {
+
+  //MENU ICON
+  &__trigger {
+    color: $base-color;
+
+    &:hover {
+      color: $base-color-three;
+    }
+  }
+
+  //SEARCH
+  &__search {
+    max-width: 288px;
+
+    .ant-input-suffix i{
+      color: #233644;
+    }
+  }
+
+  //USER
+  $user-line-separation: 25px !default;
+  $user-line-height: 64px !default;
+
+  &__user {
+    display: flex;
+    justify-content: flex-end;
+    justify-items: center;
+    line-height: $user-line-height;
+    padding-right: 20px;
+
+    //NOTIFICATIONS
+    .user-notifications {
+      padding: 0 $user-line-separation;
+      position: relative;
+
+      &:after {
+        background-color: $base-light-grey;
+        content: "";
+        height: 50%;
+        position: absolute;
+        right: 0;
+        top: 25%;
+        width: 2px;
+      }
+
+      .anticon-bell {
+        color: $base-dark-grey;
+        font-size: 20px;
+      }
+    }
+
+    //INFO
+    .user-profile{
+      padding-left: $user-line-separation;
+      padding-top: 17px;
+      padding-right: 45px;
+      position: relative;
+
+      .user-name, .user-role{
+        display: block;
+        line-height: 1;
+        text-align: right;
+      }
+
+      .user-name {
+        color: $base-color;
+        font-weight: 700;
+      }
+
+      .user-role {
+        color: $base-dark-grey;
+      }
+
+      .ant-avatar{
+        position: absolute;
+        top: 16px;
+        right: 0;
+      }
+    }
+  }
+}

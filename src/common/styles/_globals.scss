@@ -1,3 +1,7 @@
+.ant-select-auto-complete.ant-select .ant-input:focus, .ant-select-auto-complete.ant-select .ant-input:hover{
+  border-color: $base-color-three;
+}
+
 .tidzo {
   height: 100%;
 }
@@ -8,4 +12,21 @@
   padding: 0 24px;
   cursor: pointer;
   transition: color .3s;
+}
+
+/*********************************************************************
+ * DROPDOWN GLOBAL STYLING
+ **********************************************************************/
+.ant-dropdown {
+  padding: 6px 0;
+
+  .ant-dropdown-menu-item {
+    font-weight: 700;
+    padding: 6px 12px;
+    text-transform: capitalize;
+
+    &-active {
+      background-color: rgba($base-color-three, .2);
+    }
+  }
 }
