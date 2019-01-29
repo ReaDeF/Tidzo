@@ -1,7 +1,7 @@
 // #region dependencies
 import React from 'react';
 import { connect } from 'react-redux';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 // #endregion
 // #region antd
@@ -19,6 +19,9 @@ import Title from '../../presentational/Title';
 // #endregion
 // #region constant
 // #endregion
+// #region service
+import LoginService from '../../../services/security/login';
+// #endregion
 
 /**
  * @file components/containers/Login/index.js
@@ -35,13 +38,54 @@ class Login extends React.Component {
   constructor() {
     super();
 
-    this.state = {};
+    this.state = {
+      credentials: {
+        user: '',
+        password: '',
+      },
+    };
   }
 
   componentDidMount() {}
 
   handleSubmit = (e) => {
     e.preventDefault();
+  }
+
+  loggedIn = () => {
+    const LoginServ = new LoginService();
+    const {
+      credentials: {
+        user,
+        password,
+      },
+    } = this.state;
+    const {
+      dispatch,
+    } = this.props;
+
+    const credentialToSend = {
+      usuario: user,
+      password,
+    };
+
+    dispatch(LoginServ.login(credentialToSend));
+  }
+
+  handleInputOnchange = (evt) => {
+    const {
+      target: {
+        value,
+        name,
+      },
+    } = evt;
+
+    this.setState(prevState => ({
+      credentials: {
+        ...prevState.credentials,
+        [name]: value,
+      },
+    }));
   }
 
   /**
@@ -52,7 +96,17 @@ class Login extends React.Component {
    * @return {JSX} Components for App
    */
   render() {
-    const { handleSubmit } = this;
+    const {
+      handleSubmit,
+      handleInputOnchange,
+      loggedIn,
+    } = this;
+    const {
+      credentials: {
+        user,
+        password,
+      },
+    } = this.state;
 
     return (
       <Row>
@@ -65,17 +119,33 @@ class Login extends React.Component {
             onSubmit={handleSubmit}
           >
             <Form.Item label="CORREO ELECTRONICO">
-              <Input prefix={<Icon type="user" />} placeholder="nombre@micorreo.com" />
+              <Input
+                name="user"
+                prefix={<Icon type="user" />}
+                placeholder="nombre@micorreo.com"
+                onChange={handleInputOnchange}
+                value={user}
+              />
             </Form.Item>
             <Form.Item label="CONTRASEÑA">
-              <Input prefix={<Icon type="lock" />} type="password" placeholder="8+ caracteres alfanuméricos" />
+              <Input
+                name="password"
+                prefix={<Icon type="lock" />}
+                type="password"
+                placeholder="8+ caracteres alfanuméricos"
+                onChange={handleInputOnchange}
+                value={password}
+              />
             </Form.Item>
             <Form.Item>
               <a href="##">Olvidé mi contraseña</a>
               <a href="##">Quiero obtener una cuenta</a>
             </Form.Item>
             <Form.Item>
-              <Button type="primary">
+              <Button
+                type="primary"
+                onClick={loggedIn}
+              >
                 {'Log in'}
               </Button>
             </Form.Item>
@@ -97,11 +167,11 @@ class Login extends React.Component {
 const mapStateToProps = () => ({});
 
 Login.propTypes = {
-  // dispatch: PropTypes.func,
+  dispatch: PropTypes.func,
 };
 
 Login.defaultProps = {
-  // dispatch: '',
+  dispatch: '',
 };
 
 export default withRouter(connect(mapStateToProps)(Login));

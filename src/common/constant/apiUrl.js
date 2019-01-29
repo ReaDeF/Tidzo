@@ -1,11 +1,8 @@
+const baseHost = process.env.apiDomain;
 export const securityUrls = {
-  login: `${process.env.apiDomain}login`,
+  login: `${baseHost}seguridad/autenticacion`,
 };
 
 export const userUrls = {
-  list: `${process.env.apiDomain}login`,
-};
-
-export const foo = {
-
+  list: `${baseHost}login`,
 };
