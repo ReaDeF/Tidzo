@@ -18,6 +18,7 @@ export default {
     recover: {
       indication: `${auth}/recover/indication`,
       password: `${auth}/recover/password`,
+      notificationStep: `${auth}/recover/notification`,
     },
   },
 };
