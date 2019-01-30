@@ -17,6 +17,7 @@ export default {
     login: `${auth}/login`,
     recover: {
       indication: `${auth}/recover/indication`,
+      password: `${auth}/recover/password`,
     },
   },
 };
