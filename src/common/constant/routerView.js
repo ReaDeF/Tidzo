@@ -15,5 +15,8 @@ export default {
   auth: {
     base,
     login: `${auth}/login`,
+    recover: {
+      indication: `${auth}/recover/indication`,
+    },
   },
 };
