@@ -1,3 +1,7 @@
+.ant-select-auto-complete.ant-select .ant-input:focus, .ant-select-auto-complete.ant-select .ant-input:hover{
+  border-color: $base-color-three;
+}
+
 .tidzo {
   height: 100%;
 }
@@ -99,6 +103,122 @@
  * HEADINGS
  ****************************************************/
 
+.tidzo-heading {
+
+  &-one {
+    margin: 0;
+    font-size: 30px;
+    color: $base-color;
+  }
+
+  &-two {
+    margin: 0;
+    color: $base-color-two;
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  &-three {
+    margin: 0;
+    color: #727272;
+    font-size: 14px;
+  }
+
+  &-four {
+    margin: 0;
+    color: #727272;
+    font-size: 12px;
+  }
+}
+
+/****************************************************
+ * BUTTONS
+ ****************************************************/
+%base-button-styling {
+  border: 1px solid transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 12px;
+  font-family: $primary-font;
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: 1;
+  min-width: 120px;
+  outline: 0;
+  padding: 10px 28px;
+  position: relative;
+  text-transform: uppercase;
+  text-align: center;
+  transition: all .3s ease-in-out;
+  zoom: 1;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+%base-button-styling--hover {
+  box-shadow: 0 2px 4px rgba($base-black, 0.3);
+}
+
+%base-button-styling--pressed {
+  background-color: #00796B;
+}
+
+.tidzo-button-primary {
+  @extend %base-button-styling;
+  background-color: $base-color-three;
+  color: $base-white;
+
+  &:hover {
+    @extend %base-button-styling--hover;
+  }
+
+  &:active {
+    @extend %base-button-styling--pressed;
+  }
+}
+
+.tidzo-button-outline {
+  @extend %base-button-styling;
+  border-color: $base-color-three;
+  color: $base-color-three;
+
+  &:hover {
+    @extend %base-button-styling--hover;
+    background-color: $base-color-three;
+    color: $base-white;
+  }
+
+  &:active {
+    @extend %base-button-styling--pressed;
+    color: $base-white;
+  }
+}
+
+.tidzo-button-danger {
+  @extend %base-button-styling;
+  color: $base-color-two;
+
+  &:hover {
+    @extend %base-button-styling--hover;
+    background-color: $base-color-two;
+    color: $base-white;
+  }
+
+  &:active {
+    background-color: #ED4B37;
+  }
+}
+
+.tidzo-button-disabled {
+  @extend %base-button-styling;
+  border-color: #C9C9C9;
+  color: #C9C9C9;
+}
+
+/****************************************************
+ * HEADINGS
+ ****************************************************/
 .tidzo-heading {
 
   &-one {
