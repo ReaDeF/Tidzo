@@ -15,6 +15,7 @@ import Footers from '../../presentational/Footers';
 import Login from '../Login';
 import RecoverIndication from '../RecoverIndication';
 import RecoverPassword from '../RecoverPassword';
+import EmailNotification from '../../presentational/EmailNotification';
 // #endregion
 // #region constant
 import routerView from '../../../common/constant/routerView';
@@ -51,10 +52,11 @@ class AuthLayout extends React.Component {
     const {
       auth: {
         login,
-        base,
+        // base,
         recover: {
           indication,
           password,
+          notificationStep,
         },
       },
     } = routerView;
@@ -66,11 +68,6 @@ class AuthLayout extends React.Component {
           <PartialView>
             <Switch>
               <Route
-                exact
-                path={base}
-                component={() => (<h2>Testing</h2>)}
-              />
-              <Route
                 path={login}
                 component={Login}
               />
@@ -81,6 +78,10 @@ class AuthLayout extends React.Component {
               <Route
                 path={password}
                 component={RecoverPassword}
+              />
+              <Route
+                path={notificationStep}
+                component={EmailNotification}
               />
             </Switch>
           </PartialView>
