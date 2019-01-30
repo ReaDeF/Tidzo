@@ -2,9 +2,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // #endregion
+// #region antd
+import {
+  Layout,
+  Icon,
+  Avatar,
+} from 'antd';
 // #region components
-import Layout from 'antd/lib/layout';
-import Icon from 'antd/lib/icon';
 import NavMenu from '../NavMenu';
 // #endregion
 // #region constant
@@ -31,6 +35,10 @@ const Footers = ({ navItems, collapsed }) => (
     collapsible
     collapsed={collapsed}
   >
+    <div>
+      <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+      <span>Tidzo App</span>
+    </div>
     <NavMenu items={navItems} />
     <span className="need-support">
       <Icon type="question-circle" />
