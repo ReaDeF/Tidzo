@@ -6,8 +6,8 @@ import { withRouter } from 'react-router-dom';
 import { hot } from 'react-hot-loader';
 // #endregion
 // #region components
-import Layouts from '../Layouts';
-// import AuthLayout from '../AuthLayout';
+// import Layouts from '../Layouts';
+import AuthLayout from '../AuthLayout';
 import UserService from '../../../services/user/user';
 // #endregion
 // #region constant
@@ -45,8 +45,8 @@ class App extends React.Component {
    */
   render() {
     return (
-      <Layouts />
-      // <AuthLayout />
+      // <Layouts />
+      <AuthLayout />
     );
   }
 }

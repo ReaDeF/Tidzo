@@ -13,6 +13,7 @@ import AuthLayoutHeader from '../../presentational/AuthLayoutHeader';
 import PartialView from '../../presentational/PartialView';
 import Footers from '../../presentational/Footers';
 import Login from '../Login';
+import RecoverIndication from '../RecoverIndication';
 // #endregion
 // #region constant
 import routerView from '../../../common/constant/routerView';
@@ -50,6 +51,9 @@ class AuthLayout extends React.Component {
       auth: {
         login,
         base,
+        recover: {
+          indication,
+        },
       },
     } = routerView;
 
@@ -67,6 +71,10 @@ class AuthLayout extends React.Component {
               <Route
                 path={login}
                 component={Login}
+              />
+              <Route
+                path={indication}
+                component={RecoverIndication}
               />
             </Switch>
           </PartialView>
