@@ -1,57 +1,66 @@
+$tidzo-menu-background-color: #103444;
+%tidzo-menu-item-base {
+  background-color: $tidzo-menu-background-color !important;
+  color: rgba($base-white, .5);
+  font-size: 13px;
+  height: 60px !important;
+  line-height: 60px !important;
+  margin: 0 !important;
+
+  .anticon {
+    font-size: 20px;
+    @include transition_slow(color);
+  }
+
+  a {
+    color: rgba($base-white, .5);
+  }
+
+  &:hover,
+  &.ant-menu-item-selected {
+    background-color: #032732 !important;
+    font-weight: 700;
+
+    a {
+      color: rgba($base-white, 1) !important;
+      font-weight: 700;
+    }
+
+    .anticon {
+      color: $base-color-two;
+    }
+  }
+}
+
+
 .tidzo-menu {
-  background-color: $base-color;
+  background-color: $tidzo-menu-background-color;
 
   &:not(.ant-layout-sider-collapsed) {
 
     .tidzo-menu__wrapper {
       padding-left: 21px !important;
     }
+
+    .need-support {
+      span {
+        opacity: 1;
+      }
+    }
+
   }
 
   //WRAPPER
   &__wrapper {
     padding-top: 32px;
-    background-color: $base-color;
+    background-color: $tidzo-menu-background-color;
     transition: padding-left .15s ease-in-out;
   }
 
   //ITEMS
   .ant-menu-item,
   .ant-menu-submenu-title {
-    background-color: $base-color;
-    color: rgba($base-white, .5);
-    font-size: 13px;
-    height: 60px !important;
-    line-height: 60px !important;
-    margin: 0 !important;
-
-    .anticon {
-      font-size: 20px;
-      @include transition_slow(color);
-    }
-
-    span {
-      margin-left: 10px;
-    }
-
-    a {
-      color: rgba($base-white, .5);
-    }
-
-    &:hover,
-    &.ant-menu-item-selected {
-      background-color: #032732 !important;
-      font-weight: 700;
-
-      a {
-        color: rgba($base-white, 1) !important;
-        font-weight: 700;
-      }
-
-      .anticon {
-        color: $base-color-two;
-      }
-    }
+    @extend %tidzo-menu-item-base;
   }
 
   //DIVIDER
@@ -62,6 +71,7 @@
   .need-support {
     bottom: 20px;
     display: flex;
+    min-width: 200px;
     position: absolute;
     align-items: center;
     justify-content: center;
@@ -80,6 +90,7 @@
 
     span {
       font-weight: 300;
+      opacity: 0;
     }
 
     &:hover {
@@ -89,7 +100,14 @@
         color: $base-white;
       }
     }
-
   }
+}
 
+.ant-menu-submenu {
+
+  //ITEMS
+  .ant-menu-item,
+  .ant-menu-submenu-title {
+    @extend %tidzo-menu-item-base;
+  }
 }

@@ -1,3 +1,24 @@
+/*********************************************************************
+ * RESET [USER AGENT]
+ **********************************************************************/
+
+body, html{
+  font-family: $base-font;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/*********************************************************************
+ * CLASSES & ELEMENTS
+ **********************************************************************/
+
 .ant-select-auto-complete.ant-select .ant-input:focus, .ant-select-auto-complete.ant-select .ant-input:hover{
   border-color: $base-color-three;
 }

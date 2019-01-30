@@ -1,3 +1,6 @@
+/*********************************************************************
+ * COLORS
+ **********************************************************************/
 //base colors
 $base-color: #032732 !default;
 $base-color-two: #FD6F5E !default;
@@ -19,7 +22,8 @@ $base-success: #84D049;
 $base-danger: #FB4A6A;
 
 
-//MIXINGS
-@mixin transition_slow($property, $time: .2s, $ease: ease-in-out){
-  transition: $property $time $ease;
-}
+/*********************************************************************
+ * FONTS
+ **********************************************************************/
+
+$base-font: 'Lato', sans-serif;
