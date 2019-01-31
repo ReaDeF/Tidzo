@@ -10,7 +10,8 @@ const auth = '/auth';
 export default {
   base,
   user: {
-    list: `${user}`,
+    base: `${user}`,
+    list: `${user}/list`,
   },
   auth: {
     base,

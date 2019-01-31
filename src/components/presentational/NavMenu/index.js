@@ -65,7 +65,7 @@ const NavMenu = () => (
       <Menu.Item key="2">
         <Icon type="user" />
         <span>
-          <Link to="/users">Usuario</Link>
+          <Link to="/users/list">Usuario</Link>
         </span>
       </Menu.Item>
       <Menu.Item key="3">
