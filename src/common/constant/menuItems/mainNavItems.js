@@ -23,7 +23,7 @@ export default [
       {
         id: 1,
         label: 'User',
-        to: `${user}`,
+        to: `${user}/list`,
         icon: 'user',
       },
     ],

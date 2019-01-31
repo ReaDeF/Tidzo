@@ -1,40 +1,34 @@
 // #region dependencies
 import React from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
-import { hot } from 'react-hot-loader';
 // #endregion
 // #region components
-import Layouts from '../Layouts';
-// import AuthLayout from '../AuthLayout';
-import UserService from '../../../services/user/user';
+import Toolbar from '../../../presentational/Toolbar';
 // #endregion
 // #region constant
 // #endregion
 
 /**
- * @file components/containers/App/index.js
- * @class components/containers/App
+ * @file components/containers/UsersList/index.js
+ * @class components/containers/UsersList
  * @extends React.Component
- * @classdesc This is the main app component. Were all the views and controls are loaded.
+ * @classdesc This is the main UsersList component. Were all the views and controls are loaded.
  * This include the navigation layout and the route config
  * @since v1.0
  * @author @clenondavis <dev@carloslenon.com>
  * @example
- * <App />
+ * <UsersList />
  */
-class App extends React.Component {
+class UsersList extends React.Component {
   constructor() {
     super();
 
     this.state = {};
   }
 
-  componentDidMount() {
-    const { dispatch } = this.props;
-    new UserService().recoverPassword('maru@jer.com')(dispatch);
-  }
+  componentDidMount() {}
 
   /**
    * @function
@@ -45,8 +39,7 @@ class App extends React.Component {
    */
   render() {
     return (
-      <Layouts />
-      // <AuthLayout />
+      <Toolbar />
     );
   }
 }
@@ -54,19 +47,19 @@ class App extends React.Component {
 /**
  * @function
  * @name mapStateToProps
- * @memberof components/containers/App
+ * @memberof components/containers/Users
  * @description Set props to state
  * @param {Object} state    - list of state
  * @return {Object} state from store
  */
 const mapStateToProps = () => ({});
 
-App.propTypes = {
-  dispatch: PropTypes.func,
+UsersList.propTypes = {
+  // dispatch: PropTypes.func,
 };
 
-App.defaultProps = {
-  dispatch: '',
+UsersList.defaultProps = {
+  // dispatch: '',
 };
 
-export default hot(module)(withRouter(connect(mapStateToProps)(App)));
+export default withRouter(connect(mapStateToProps)(UsersList));

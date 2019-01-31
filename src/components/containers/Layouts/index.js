@@ -59,7 +59,7 @@ class Layouts extends React.Component {
   render() {
     const { toggleMenu } = this;
     const { collapsed } = this.state;
-    const { user: { userMain } } = appRouter;
+    const { user: { base } } = appRouter;
 
     return (
       <Layout
@@ -77,8 +77,7 @@ class Layouts extends React.Component {
           <PartialView>
             <Switch>
               <Route
-                exact
-                path={userMain}
+                path={base}
                 component={Users}
               />
             </Switch>

@@ -2,11 +2,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 // import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
 // #endregion
 // #region components
+import UserList from './List';
 // #endregion
 // #region constant
+import appRouter from '../../../common/constant/routerView';
 // #endregion
 
 /**
@@ -37,8 +39,20 @@ class Users extends React.Component {
    * @return {JSX} Components for App
    */
   render() {
+    const {
+      user: {
+        list,
+      },
+    } = appRouter;
     return (
-      <h1>User module</h1>
+      <>
+        <Switch>
+          <Route
+            path={list}
+            component={UserList}
+          />
+        </Switch>
+      </>
     );
   }
 }
