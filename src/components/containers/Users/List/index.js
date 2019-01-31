@@ -7,6 +7,7 @@ import { withRouter } from 'react-router-dom';
 // #region components
 import Toolbar from '../../../presentational/Toolbar';
 import Grid from '../../../presentational/Grid';
+import GridPagination from '../../../presentational/GridPagination';
 // #endregion
 // #region constant
 // #endregion
@@ -167,10 +168,6 @@ class UsersList extends React.Component {
       },
     ];
 
-    // const pagination = {
-    //   hideOnSinglePage: true,
-    // };
-
     const rowSelection = {
       onChange: (selectedRowKeys, selectedRows) => {
         console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
@@ -187,6 +184,14 @@ class UsersList extends React.Component {
           columns={columns}
           data={dataSource}
           rowSelection={rowSelection}
+          handleOnchange={() => {}}
+        />
+        <GridPagination
+          totalRow={100}
+          moduleName="usuarios"
+          handleOnChange={() => {}}
+          handleOnSizeChange={() => {}}
+          handlePageSizeChange={() => {}}
         />
       </>
     );
