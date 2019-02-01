@@ -1,0 +1,98 @@
+/*********************************************************************
+ * TOOLBAR
+ **********************************************************************/
+$tidzo-toolbar-icon-separation: 10px;
+
+.tidzo-toolbar {
+  display: flex;
+  align-items: center;
+
+  //WRAPPER
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  //BUTTONS
+  .ant-btn {
+    padding: 0 $tidzo-toolbar-icon-separation !important;
+    i,
+    div {
+      @include transition_slow(color);
+    }
+
+    i {
+      color: $base-color-two;
+      font-size: 24px;
+    }
+
+    div{
+      color: $base-color;
+    }
+
+    //HOVER STATE
+    &:hover {
+      i,
+      div {
+        color: $base-color-three;
+      }
+    }
+  }
+
+  //DIVIDER
+  &__divider {
+    background-color: $base-light-grey;
+    margin: 0 $tidzo-toolbar-icon-separation;
+    height: 40px;
+    width: 2px;
+  }
+}
+
+/*********************************************************************
+ * LIST TABLE
+ **********************************************************************/
+
+.tidzo-list-table {
+  margin-top: 15px;
+
+  .ant-table-body{
+
+    //TABLE HEAD
+    .ant-table-thead > tr > th .ant-table-column-sorter-up.on,
+    .ant-table-thead > tr > th .ant-table-column-sorter-down.on {
+      color: $base-color-three;
+    }
+
+    //CHECKBOX STYLE
+    .ant-checkbox-checked .ant-checkbox-inner,
+    .ant-checkbox-indeterminate .ant-checkbox-inner:after{
+      background-color: $base-color-three;
+    }
+
+    .ant-checkbox-checked .ant-checkbox-inner{
+      border-color: $base-color-three;
+    }
+
+
+    //TABLE BODY
+    .ant-table-tbody {
+
+      .ant-table-row-selected td,
+      tr.ant-table-row-hover:not(.ant-table-expanded-row) > td,
+      tr.ant-table-row-hover:not(.ant-table-expanded-row) > td,
+      tr:hover:not(.ant-table-expanded-row) > td, .ant-table-tbody > tr:hover:not(.ant-table-expanded-row) > td {
+        background-color: rgba($base-color-three, .2) !important;
+        color: $base-color-type;
+        //font-weight: 700;
+      }
+    }
+  }
+}
+
+/*********************************************************************
+ * FOOTER TABLE PAGINATION
+ **********************************************************************/
+
+.tidzo-footer-pagination {
+  margin-top: 20px;
+}

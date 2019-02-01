@@ -1,20 +1,20 @@
 $style-location: './common/styles' !default;
 
-@import './common/styles/_helpers.scss';
+/*********************************************************************
+ * FONT IMPORT
+ **********************************************************************/
+@import url('https://fonts.googleapis.com/css?family=Cabin:400,500,600,700');
+
+
+/*********************************************************************
+ * PARTIALS [BUNDLE]
+ **********************************************************************/
 @import './common/styles/_variables.scss';
+@import './common/styles/_helpers.scss';
+@import './common/styles/_layouts.scss';
 @import './common/styles/_globals.scss';
 @import './common/styles/_menu.scss';
 @import './common/styles/_header.scss';
 @import './common/styles/_main-header.scss';
 @import './common/styles/_partial-view.scss';
 @import './common/styles/_footer.scss';
-
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-}
-
-html {
-  height: 100%;
-}

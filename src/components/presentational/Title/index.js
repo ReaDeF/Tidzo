@@ -16,8 +16,8 @@ import PropTypes from 'prop-types';
  * @example
  * <Title />
  */
-const Title = ({ text }) => (
-  <h1 className="tidzo-title">{text}</h1>
+const Title = ({ text, subheadline }) => (
+  subheadline ? <h1 className="tidzo-heading-two">{text}</h1> : <h1 className="tidzo-heading-one">{text}</h1>
 );
 
 /**
@@ -26,12 +26,16 @@ const Title = ({ text }) => (
  * @type {propTypes}
  * @param {Object} props        - React PropTypes
  * @param {String} text  - Title text
+ * @param {boolean} bool  - Is a sub headline?
  * @return {Array} React PropTypes
  */
 Title.propTypes = {
   text: PropTypes.string.isRequired,
+  subheadline: PropTypes.bool,
 };
 
-Title.defaultProps = {};
+Title.defaultProps = {
+  subheadline: false,
+};
 
 export default Title;
