@@ -37,7 +37,7 @@ const GridPagination = ({
   handleOnSizeChange,
   handlePageSizeChange,
 }) => (
-  <Row>
+  <Row className="tidzo-footer-pagination">
     <Col span={14}>
       <h1>
         <span>TOTAL LISTADO:</span>

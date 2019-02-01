@@ -25,16 +25,17 @@ import Title from '../Title';
  * <Toolbar />
  */
 const Toolbar = () => (
-  <Row>
-    <Col span={18}>
+  <Row className="tidzo-toolbar">
+    <Col span={12}>
       <Title text="Administración" />
-      <Title text="Usuarios" />
+      <Title text="Usuarios" subheadline />
     </Col>
-    <Col span={6}>
+    <Col className="tidzo-toolbar__actions" span={12}>
       <Button>
         <Icon type="filter" />
         <div>Filtros</div>
       </Button>
+      <div className="tidzo-toolbar__divider" />
       <Button>
         <Icon type="user-add" />
         <div>Crear Usuario</div>

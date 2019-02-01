@@ -35,7 +35,7 @@ const Footers = ({ navItems, collapsed }) => (
     collapsible
     collapsed={collapsed}
   >
-    <div>
+    <div className="tidzo-menu__logo">
       <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
       <span>Tidzo App</span>
     </div>

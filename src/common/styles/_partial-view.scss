@@ -1,6 +1,8 @@
 .tidzo-partial-view {
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
   margin: 24px 16px;
-  padding: 24; 
-  background: #fff; 
-  min-height: 280;
+  min-height: auto !important;
+  padding: 20px;
 }

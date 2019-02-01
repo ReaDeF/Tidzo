@@ -1,56 +1,93 @@
+$tidzo-menu-background-color: #103444;
+$tidzo-menu-offset: 21px;
+
+%tidzo-menu-item-base {
+  background-color: $tidzo-menu-background-color !important;
+  color: rgba($base-white, .5);
+  font-size: 13px;
+  height: 60px !important;
+  line-height: 60px !important;
+  margin: 0 !important;
+
+  .anticon {
+    font-size: 20px;
+    @include transition_slow(color);
+  }
+
+  a {
+    color: rgba($base-white, .5);
+  }
+
+  &:hover,
+  &.ant-menu-item-selected {
+    background-color: #032732 !important;
+    font-weight: 700;
+
+    a {
+      color: rgba($base-white, 1) !important;
+      font-weight: 700;
+    }
+
+    .anticon {
+      color: $base-color-two;
+    }
+  }
+}
+
 .tidzo-menu {
-  background-color: $base-color;
+  background-color: $tidzo-menu-background-color;
 
   &:not(.ant-layout-sider-collapsed) {
 
     .tidzo-menu__wrapper {
-      padding-left: 21px !important;
+
+      //MENU
+      .ant-menu-item,
+      .ant-menu-submenu-title {
+        padding-left: $tidzo-menu-offset + 10px !important;
+      }
+
+      //DIVIDER
+      .ant-menu-item-divider {
+        margin-left: $tidzo-menu-offset;
+        width: calc(100% - #{$tidzo-menu-offset});
+      }
+
+      //SUBMENU
+      .ant-menu-sub{
+
+        .ant-menu-item {
+          padding-left: $tidzo-menu-offset + 20px !important;
+        }
+      }
     }
+
+    //SUPPORT
+    .need-support {
+      span {
+        opacity: 1;
+      }
+    }
+
   }
 
   //WRAPPER
   &__wrapper {
-    padding-top: 32px;
-    background-color: $base-color;
+    background-color: $tidzo-menu-background-color;
     transition: padding-left .15s ease-in-out;
   }
 
-  //ITEMS
-  .ant-menu-item,
-  .ant-menu-submenu-title {
+  //LOGO
+  &__logo {
+    align-items: center;
     background-color: $base-color;
-    color: rgba($base-white, .5);
-    font-size: 13px;
-    height: 60px !important;
-    line-height: 60px !important;
-    margin: 0 !important;
+    color: $base-white;
+    display: flex;
+    justify-content: center;
+    padding: 25px 0;
 
-    .anticon {
-      font-size: 20px;
-      @include transition_slow(color);
-    }
-
-    span {
-      margin-left: 10px;
-    }
-
-    a {
-      color: rgba($base-white, .5);
-    }
-
-    &:hover,
-    &.ant-menu-item-selected {
-      background-color: #032732 !important;
-      font-weight: 700;
-
-      a {
-        color: rgba($base-white, 1) !important;
-        font-weight: 700;
-      }
-
-      .anticon {
-        color: $base-color-two;
-      }
+    .ant-avatar{
+      margin-right: 10px;
     }
   }
 
@@ -62,6 +99,7 @@
   .need-support {
     bottom: 20px;
     display: flex;
+    min-width: 200px;
     position: absolute;
     align-items: center;
     justify-content: center;
@@ -80,6 +118,7 @@
 
     span {
       font-weight: 300;
+      opacity: 0;
     }
 
     &:hover {
@@ -92,4 +131,14 @@
 
   }
 
+}
+
+//ITEMS
+.tidzo-menu,
+.ant-menu-submenu-popup {
+
+  .ant-menu-item,
+  .ant-menu-submenu-title {
+    @extend %tidzo-menu-item-base
+  }
 }

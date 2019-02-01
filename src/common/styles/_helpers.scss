@@ -1,4 +1,24 @@
-// @dimentions
+/*********************************************************************
+ * MIXINS
+ **********************************************************************/
+
+@mixin transition_slow($property, $time: .2s, $ease: ease-in-out){
+  transition: $property $time $ease;
+}
+
+/*********************************************************************
+ * CLASSES
+ **********************************************************************/
+
+.tidzo-anchor {
+  color: $base-color-two !important;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline !important;
+  }
+}
+
 .full-height {
   height: 100%;
 }
+

@@ -29,7 +29,7 @@ const Grid = ({
   rowSelection,
   showPagination,
 }) => (
-  <Row>
+  <Row className="tidzo-list-table">
     <Col span={24}>
       <Table
         columns={columns}
