@@ -24,6 +24,57 @@ button,
 }
 
 /*********************************************************************
+ * FORM GLOBAL STYLING
+ **********************************************************************/
+form {
+
+  // LABEL
+  .ant-form-item-label{
+
+    label {
+      color: $base-color-type;
+      display: block;
+      letter-spacing: .5px;
+      text-align: left;
+      text-transform: uppercase;
+    }
+  }
+
+  // INPUT
+  .ant-input-affix-wrapper .ant-input-prefix {
+    color: $base-color-type-three;
+  }
+  .ant-input {
+    border-color: $base-color-type-three;
+    color: $base-color-type;
+
+    &:hover, &:focus  {
+      border-color: $base-color-type;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px rgba($base-color-type, 0.2);
+    }
+
+    &::placeholder {
+      color: $base-color-type-three;
+    }
+  }
+
+  //HOVER STATE
+  .ant-input-affix-wrapper:hover, .ant-input-affix-wrapper:focus {
+
+    .ant-input:not(.ant-input-disabled){
+      border-color: $base-color-type !important;
+    }
+
+    .ant-input-prefix {
+      color: $base-color-type;
+    }
+  }
+}
+
+/*********************************************************************
  * CLASSES & ELEMENTS
  **********************************************************************/
 .ant-select-auto-complete.ant-select .ant-input:focus, .ant-select-auto-complete.ant-select .ant-input:hover{
@@ -80,21 +131,26 @@ button,
   background-color: $base-color-three;
   color: $base-white;
 
-  &:hover {
+  &:hover,
+  &:focus {
     @extend %base-button-styling--hover;
+    color: $base-color-three;
+    border-color: $base-color-three;
   }
 
   &:active {
     @extend %base-button-styling--pressed;
+    color: $base-white;
   }
 }
 
 .tidzo-button-outline {
   @extend %base-button-styling;
-  border-color: $base-color-three;
+  border-color: $base-color-three !important;
   color: $base-color-three;
 
-  &:hover {
+  &:hover,
+  &:focus {
     @extend %base-button-styling--hover;
     background-color: $base-color-three;
     color: $base-white;

@@ -1,0 +1,29 @@
+/*********************************************************************
+ * MAIN LAYOUT
+ **********************************************************************/
+.tidzo-login{
+  text-align: center;
+
+  .tidzo-heading-one {
+    margin-bottom: 40px;
+  }
+
+  &__form {
+
+    .ant-row{
+      margin-bottom: 20px;
+    }
+  }
+
+  &__last-input {
+    margin-bottom: 10px !important;
+  }
+
+  &__actions {
+
+    .ant-form-item-children {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
