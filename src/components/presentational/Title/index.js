@@ -16,9 +16,20 @@ import PropTypes from 'prop-types';
  * @example
  * <Title />
  */
-const Title = ({ text, subheadline }) => (
-  subheadline ? <h1 className="tidzo-heading-two">{text}</h1> : <h1 className="tidzo-heading-one">{text}</h1>
-);
+function Title({ text, heading }) {
+  switch (heading) {
+    case 1:
+      return <h1 className="tidzo-heading-one">{text}</h1>;
+    case 2:
+      return <h2 className="tidzo-heading-two">{text}</h2>;
+    case 3:
+      return <h3 className="tidzo-heading-three">{text}</h3>;
+    case 4:
+      return <h4 className="tidzo-heading-four">{text}</h4>;
+    default:
+      return <h1 className="tidzo-heading-one">{text}</h1>;
+  }
+}
 
 /**
  * @name Title PropTypes
@@ -26,16 +37,16 @@ const Title = ({ text, subheadline }) => (
  * @type {propTypes}
  * @param {Object} props        - React PropTypes
  * @param {String} text  - Title text
- * @param {boolean} bool  - Is a sub headline?
+ * @param {Number} number  - Headline level
  * @return {Array} React PropTypes
  */
 Title.propTypes = {
   text: PropTypes.string.isRequired,
-  subheadline: PropTypes.bool,
+  heading: PropTypes.number,
 };
 
 Title.defaultProps = {
-  subheadline: false,
+  heading: 1,
 };
 
 export default Title;
