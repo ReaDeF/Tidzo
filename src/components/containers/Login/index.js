@@ -109,12 +109,13 @@ class Login extends React.Component {
     } = this.state;
 
     return (
-      <Row>
+      <Row className="tidzo-login">
         <Col span={24}>
           <Title text="¡Bienvenido!" />
         </Col>
         <Col span={24}>
           <Form
+            className="tidzo-login__form"
             layout="vertical"
             onSubmit={handleSubmit}
           >
@@ -127,7 +128,7 @@ class Login extends React.Component {
                 value={user}
               />
             </Form.Item>
-            <Form.Item label="CONTRASEÑA">
+            <Form.Item label="CONTRASEÑA" className="tidzo-login__last-input">
               <Input
                 name="password"
                 prefix={<Icon type="lock" />}
@@ -137,13 +138,13 @@ class Login extends React.Component {
                 value={password}
               />
             </Form.Item>
-            <Form.Item>
-              <a href="##">Olvidé mi contraseña</a>
-              <a href="##">Quiero obtener una cuenta</a>
+            <Form.Item className="tidzo-login__actions">
+              <a href="##" className="tidzo-anchor">Olvidé mi contraseña</a>
+              <a href="##" className="tidzo-anchor">Quiero obtener una cuenta</a>
             </Form.Item>
             <Form.Item>
               <Button
-                type="primary"
+                className="tidzo-button-primary"
                 onClick={loggedIn}
               >
                 {'Log in'}
