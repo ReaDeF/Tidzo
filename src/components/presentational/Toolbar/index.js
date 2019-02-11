@@ -27,8 +27,8 @@ import Title from '../Title';
 const Toolbar = () => (
   <Row className="tidzo-toolbar">
     <Col span={12}>
-      <Title text="Administración" />
-      <Title text="Usuarios" subheadline />
+      <Title text="Administración" heading={1} />
+      <Title text="Usuarios" heading={2} />
     </Col>
     <Col className="tidzo-toolbar__actions" span={12}>
       <Button>
